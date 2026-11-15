@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My school event notice board</h1>
+    <button onclick="whatHappened()">What Will Happen</button>
+    <button onclick="thinkMore()">Give list</button><br><br>
+
+
+    <div>JSON Text: <span id="json-text"></span></div>
+    <div>WHAT WILL Happen: <span id="whatwillhappen"></span></div>
+    <div>PLACE: <span id="place"></span></div>   
+    <div>LIST: <span id="list"></span></div>
+    <div>END GREETING: <span id="endgreeting"></span></div>
+
+    <script>
+
+        let event = {
+            event: "annual day",
+            school: "GIIS Abu Dhabi",
+            list: "Stalls, games, and more"
+        }
+
+        function whatHappened() {
+            let jsonText            = JSON.stringify(event);
+            let whatwillhappen   = JSON.parse(jsonText);
+
+            document.getElementById("json-text").innerHTML  = jsonText;
+            document.getElementById("whatwillhappen").innerHTML = whatwillhappen.event;
+            document.getElementById("place").innerHTML =  place.school;    
+            
+        }
+
+        function delay(s) {
+            return new Promise(function(resolve){
+                setTimeout(resolve, s);
+            })
+        }
+
+        async function thinkMore() {
+            document.getElementById("endgreeting").innerHTML = "";
+
+            document.getElementById("list").innerHTML = "Working on it";
+            setTimeout(function() {
+                document.getElementById("endgreeting")  = "Here there are!!!, Stalls, Games, Food and more....."
+            }, 5);
+
+            await delay(3);
+            document.getElementById("endgreeting").innerHTML = "HAVE FUN!!!!"
+        }
+    </script>
+</body>
+</html>
